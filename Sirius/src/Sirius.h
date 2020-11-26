@@ -2,9 +2,8 @@
 
 // For use by Sirius apps.
 
-#include <stdio.h>
 #include "Sirius/Application.h"
-#include "Sirius/Core.h"
+#include "Sirius/Log.h"
 
 //---Entry Point-------------------
 #include "Sirius/EntryPoint.h"
