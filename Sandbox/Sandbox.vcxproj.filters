@@ -14,11 +14,11 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{ea487767-cd21-4b6b-8c58-8768e0ef0b93}</UniqueIdentifier>
+      <UniqueIdentifier>{19af3162-5d57-48a6-a29c-1c7205065e78}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\SandboxApp.cpp">
+    <ClCompile Include="SandboxApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
