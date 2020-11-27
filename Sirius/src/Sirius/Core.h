@@ -9,3 +9,5 @@
 #else
 	#error Sirius currently only supports Windows!
 #endif // SR_PLATFORM_WINDOWS
+
+#define BIT(x) (1 << x)

@@ -147,6 +147,10 @@
     <ClInclude Include="src\Sirius\Application.h" />
     <ClInclude Include="src\Sirius\Core.h" />
     <ClInclude Include="src\Sirius\EntryPoint.h" />
+    <ClInclude Include="src\Sirius\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Sirius\Events\Event.h" />
+    <ClInclude Include="src\Sirius\Events\KeyEvent.h" />
+    <ClInclude Include="src\Sirius\Events\MouseEvent.h" />
     <ClInclude Include="src\Sirius\Log.h" />
   </ItemGroup>
   <ItemGroup>
@@ -156,4 +160,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 
