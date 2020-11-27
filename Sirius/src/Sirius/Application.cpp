@@ -1,3 +1,4 @@
+#include "srpch.h"
 #include "Application.h"
 #include "Sirius/Events/ApplicationEvent.h"
 #include "Sirius/Log.h"
