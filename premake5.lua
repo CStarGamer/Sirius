@@ -8,14 +8,21 @@ workspace "Sirius"
 		"Dist"
 	}
 
-outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- Include directories relative to root folder.
+includeDir = {}
+includeDir["GLFW"] = "Sirius/vendor/GLFW/include"
+
+include "Sirius/vendor/GLFW"
+
 project "Sirius"
 	location "Sirius"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "srpch.h"
 	pchsource "Sirius/src/srpch.cpp"
@@ -29,7 +36,14 @@ project "Sirius"
 	includedirs
 	{
 		"%{prj.location}/src",
-		"%{prj.location}/vendor/spdlog/include"
+		"%{prj.location}/vendor/spdlog/include",
+		"%{includeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -45,7 +59,7 @@ project "Sirius"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -65,8 +79,8 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{

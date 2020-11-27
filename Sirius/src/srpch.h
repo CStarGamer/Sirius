@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Sirius/Log.h"
+
 #ifdef SR_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif // SR_PLATFORM_WINDOWS
