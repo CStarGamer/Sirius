@@ -1,7 +1,6 @@
 #include "srpch.h"
 #include "Application.h"
 #include "Sirius/Events/ApplicationEvent.h"
-#include "Sirius/Log.h"
 
 #include <GLFW/glfw3.h>
 
