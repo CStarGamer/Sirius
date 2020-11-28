@@ -3,6 +3,7 @@
 // For use by Sirius apps.
 
 #include "Sirius/Application.h"
+#include "Sirius/Layer.h"
 #include "Sirius/Log.h"
 
 //---Entry Point-------------------

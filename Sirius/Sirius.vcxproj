@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -158,6 +161,8 @@
     <ClInclude Include="src\Sirius\Events\Event.h" />
     <ClInclude Include="src\Sirius\Events\KeyEvent.h" />
     <ClInclude Include="src\Sirius\Events\MouseEvent.h" />
+    <ClInclude Include="src\Sirius\Layer.h" />
+    <ClInclude Include="src\Sirius\LayerStack.h" />
     <ClInclude Include="src\Sirius\Log.h" />
     <ClInclude Include="src\Sirius\Window.h" />
     <ClInclude Include="src\srpch.h" />
@@ -165,6 +170,8 @@
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sirius\Application.cpp" />
+    <ClCompile Include="src\Sirius\Layer.cpp" />
+    <ClCompile Include="src\Sirius\LayerStack.cpp" />
     <ClCompile Include="src\Sirius\Log.cpp" />
     <ClCompile Include="src\srpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
