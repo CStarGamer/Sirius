@@ -11,12 +11,14 @@ workspace "Sirius"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder.
-includedir = {}
-includedir["GLFW"] = "Sirius/vendor/GLFW/include"
-includedir["Glad"] = "Sirius/vendor/Glad/include"
+includeDir = {}
+includeDir["GLFW"] = "Sirius/vendor/GLFW/include"
+includeDir["Glad"] = "Sirius/vendor/Glad/include"
+includeDir["ImGui"] = "Sirius/vendor/imgui/"
 
 include "Sirius/vendor/GLFW"
 include "Sirius/vendor/Glad"
+include "Sirius/vendor/imgui"
 
 project "Sirius"
 	location "Sirius"
@@ -39,14 +41,16 @@ project "Sirius"
 	{
 		"%{prj.location}/src",
 		"%{prj.location}/vendor/spdlog/include",
-		"%{includedir.GLFW}",
-		"%{includedir.Glad}"
+		"%{includeDir.GLFW}",
+		"%{includeDir.Glad}",
+		"%{includeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
