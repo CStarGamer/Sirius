@@ -5,6 +5,8 @@
 #include "Sirius/Events/KeyEvent.h"
 #include "Sirius/Events/ApplicationEvent.h"
 
+#include <glad/glad.h>
+
 namespace Sirius {
 
 	static bool s_GLFWInitiated = false;
@@ -48,6 +50,8 @@ namespace Sirius {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		SR_CORE_ASSERT(status, "Failed to initialized Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
