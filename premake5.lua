@@ -16,6 +16,7 @@ includeDir = {}
 includeDir["GLFW"] = "Sirius/vendor/GLFW/include"
 includeDir["Glad"] = "Sirius/vendor/Glad/include"
 includeDir["ImGui"] = "Sirius/vendor/imgui/"
+includeDir["glm"] = "Sirius/vendor/glm/"
 
 include "Sirius/vendor/GLFW"
 include "Sirius/vendor/Glad"
@@ -36,7 +37,9 @@ project "Sirius"
 	files
 	{
 		"%{prj.location}/src/**.h",
-		"%{prj.location}/src/**.cpp"
+		"%{prj.location}/src/**.cpp",
+		"%{prj.location}/vendor/glm/glm/**.hpp",
+		"%{prj.location}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -45,7 +48,8 @@ project "Sirius"
 		"%{prj.location}/vendor/spdlog/include",
 		"%{includeDir.GLFW}",
 		"%{includeDir.Glad}",
-		"%{includeDir.ImGui}"
+		"%{includeDir.ImGui}",
+		"%{includeDir.glm}"
 	}
 
 	links
@@ -107,7 +111,8 @@ project "Sandbox"
 	{
 		"Sirius/vendor/spdlog/include",
 		"Sirius/src",
-		"%{prj.location}/src"
+		-- "%{prj.location}/src",
+		"%{includeDir.glm}",
 	}
 
 	links
