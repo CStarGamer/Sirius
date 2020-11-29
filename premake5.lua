@@ -1,4 +1,5 @@
 workspace "Sirius"
+	startproject "Sandbox"
 	architecture "x64"
 
 	configurations
