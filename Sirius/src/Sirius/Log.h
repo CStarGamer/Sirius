@@ -5,7 +5,7 @@
 #include "spdlog/fmt/ostr.h"
 
 namespace Sirius {
-	class SIRIUS_API Log
+	class Log
 	{
 	public:
 		static void Init();

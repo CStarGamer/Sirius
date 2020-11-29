@@ -10,7 +10,7 @@
 #include "Sirius/ImGui/ImGuiLayer.h"
 
 namespace Sirius {
-	class SIRIUS_API Application
+	class Application
 	{
 	public:
 		Application();

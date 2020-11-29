@@ -4,7 +4,7 @@
 
 namespace Sirius {
 
-	class SIRIUS_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(double x, double y)
@@ -27,7 +27,7 @@ namespace Sirius {
 		double m_MouseX, m_MouseY;
 	};
 
-	class SIRIUS_API MouseScrolledEvent : public Event
+	class MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(double xOffset, double yOffset)
@@ -50,7 +50,7 @@ namespace Sirius {
 		double m_XOffset, m_YOffset;
 	};
 
-	class SIRIUS_API MouseButtonEvent : public Event
+	class MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -63,7 +63,7 @@ namespace Sirius {
 		int m_Button;
 	};
 
-	class SIRIUS_API MouseButtonPressedEvent : public MouseButtonEvent
+	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -79,7 +79,7 @@ namespace Sirius {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class SIRIUS_API MouseButtonReleasedEvent : public MouseButtonEvent
+	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)

@@ -23,7 +23,7 @@ namespace Sirius {
 	};
 
 	// Interface representing the Window
-	class SIRIUS_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
