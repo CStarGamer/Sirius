@@ -69,12 +69,13 @@ project "Sirius"
 		{
 			"SR_PLATFORM_WINDOWS",
 			"SR_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
+			"GLFW_INCLUDE_NONE",
+			"IMGUI_API=__declspec(dllexport)"
 		}
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
@@ -111,7 +112,7 @@ project "Sandbox"
 	{
 		"Sirius/vendor/spdlog/include",
 		"Sirius/src",
-		-- "%{prj.location}/src",
+		"Sirius/vendor",
 		"%{includeDir.glm}",
 	}
 

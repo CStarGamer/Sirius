@@ -1,5 +1,7 @@
 #include <Sirius.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public Sirius::Layer {
 public:
 	ExampleLayer()
@@ -14,6 +16,13 @@ public:
 
 		if (Sirius::Input::IsKeyPressed(SR_KEY_TAB))
 			SR_TRACE("Tab is pressed!");
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World!");
+		ImGui::End();
 	}
 
 	void OnEvent(Sirius::Event& event) override
@@ -31,7 +40,6 @@ class Sandbox : public Sirius::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Sirius::ImGuiLayer());
 	}
 
 	~Sandbox() {
