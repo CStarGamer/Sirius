@@ -21,7 +21,7 @@ public:
 class Sandbox : public Sirius::Application {
 public:
 	Sandbox() {
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
 		PushOverlay(new Sirius::ImGuiLayer());
 	}
 

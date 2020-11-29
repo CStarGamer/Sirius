@@ -2,6 +2,7 @@
 #include "Application.h"
 
 #include <glad/glad.h>
+#include "Input.h"
 
 namespace Sirius {
 
@@ -55,6 +56,9 @@ namespace Sirius {
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			auto [x, y] = Input::GetMousePosition();
+			SR_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}
