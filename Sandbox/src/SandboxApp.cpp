@@ -9,19 +9,27 @@ public:
 
 	void OnUpdate() override
 	{
-		SR_INFO("ExapleLayer::Update");
+		//SR_INFO("ExapleLayer::Update");
+
+		if (Sirius::Input::IsKeyPressed(SR_KEY_TAB))
+			SR_TRACE("Tab is pressed!");
 	}
 
 	void OnEvent(Sirius::Event& event) override
 	{
-		SR_TRACE("{0}", event);
+		//SR_TRACE("{0}", event);
+		if (event.GetEventType() == Sirius::EventType::KeyPressed)
+		{
+			Sirius::KeyPressedEvent& e = (Sirius::KeyPressedEvent&)event;
+			SR_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
 class Sandbox : public Sirius::Application {
 public:
 	Sandbox() {
-		//PushLayer(new ExampleLayer());
+		PushLayer(new ExampleLayer());
 		PushOverlay(new Sirius::ImGuiLayer());
 	}
 
