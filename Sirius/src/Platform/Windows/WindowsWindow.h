@@ -1,6 +1,7 @@
 #pragma once
 #include "Sirius/Window.h"
 #include <GLFW/glfw3.h>
+#include "Sirius/Renderer/GraphicsContext.h"
 
 namespace Sirius {
 	class WindowsWindow : public Window
@@ -36,6 +37,7 @@ namespace Sirius {
 		};
 
 		WindowData m_Data;
+		GraphicsContext* m_Context;
 	};
 }
 
