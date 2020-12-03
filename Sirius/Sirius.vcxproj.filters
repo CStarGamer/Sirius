@@ -1338,6 +1338,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Sirius\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Sirius\Renderer\Shader.h" />
+    <ClInclude Include="src\Sirius\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Sirius\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1369,5 +1372,8 @@
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Sirius\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Sirius\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Sirius\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>
