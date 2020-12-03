@@ -9,6 +9,8 @@
 
 #include "Sirius/ImGui/ImGuiLayer.h"
 
+#include "Sirius/Renderer/Shader.h"
+
 namespace Sirius {
 	class Application
 	{
@@ -34,6 +36,7 @@ namespace Sirius {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 
 		static Application* s_Instance;
 	};
