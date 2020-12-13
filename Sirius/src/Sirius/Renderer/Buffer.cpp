@@ -9,10 +9,10 @@ namespace Sirius {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
+		case RendererAPI::API::None:
 			SR_CORE_ASSERT(false, "RendererAPI::None is currently not supported.");
 			return nullptr;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return new OpenGLVertexBuffer(vertices, size);
 		default:
 			SR_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -24,10 +24,10 @@ namespace Sirius {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
+		case RendererAPI::API::None:
 			SR_CORE_ASSERT(false, "RendererAPI::None is currently not supported.");
 			return nullptr;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return new OpenGLIndexBuffer(vertices, count);
 		default:
 			SR_CORE_ASSERT(false, "Unknown RendererAPI!");
