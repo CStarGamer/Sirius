@@ -12,6 +12,16 @@
 
 #include "Sirius/ImGui/ImGuiLayer.h"
 
+//---Renderer----------------------
+#include "Sirius/Renderer/Renderer.h"
+#include "Sirius/Renderer/RenderCommand.h"
+
+#include "Sirius/Renderer/Shader.h"
+#include "Sirius/Renderer/Buffer.h"
+#include "Sirius/Renderer/VertexArray.h"
+
+#include "Sirius/Renderer/OrthographicCamera.h"
+
 //---Entry Point-------------------
 #include "Sirius/EntryPoint.h"
 //---------------------------------

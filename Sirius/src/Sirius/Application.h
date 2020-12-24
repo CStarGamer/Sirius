@@ -9,12 +9,6 @@
 
 #include "Sirius/ImGui/ImGuiLayer.h"
 
-#include "Sirius/Renderer/Shader.h"
-#include "Sirius/Renderer/Buffer.h"
-#include "Sirius/Renderer/VertexArray.h"
-
-#include "Sirius/Renderer/OrthographicCamera.h"
-
 namespace Sirius {
 	class Application
 	{
@@ -38,14 +32,6 @@ namespace Sirius {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
 
 		static Application* s_Instance;
 	};
