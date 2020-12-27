@@ -1372,6 +1372,7 @@
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
     <ClInclude Include="src\Sirius\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Sirius\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">

@@ -7,6 +7,8 @@
 #include "Sirius/Events/Event.h"
 #include "Sirius/Events/ApplicationEvent.h"
 
+#include "Sirius/Core/Timestep.h"
+
 #include "Sirius/ImGui/ImGuiLayer.h"
 
 namespace Sirius {
@@ -32,6 +34,7 @@ namespace Sirius {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
 
 		static Application* s_Instance;
 	};

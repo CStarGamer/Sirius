@@ -120,22 +120,22 @@ public:
 		m_BlueShader.reset(new Sirius::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 	}
 
-	void OnUpdate() override
+	void OnUpdate(Sirius::Timestep ts) override
 	{
 		if (Sirius::Input::IsKeyPressed(SR_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed;
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		else if (Sirius::Input::IsKeyPressed(SR_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed;
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
 
 		if (Sirius::Input::IsKeyPressed(SR_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed;
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 		else if (Sirius::Input::IsKeyPressed(SR_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed;
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 		
 		if (Sirius::Input::IsKeyPressed(SR_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * ts;
 		else if (Sirius::Input::IsKeyPressed(SR_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 		Sirius::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Sirius::RenderCommand::Clear();
@@ -184,9 +184,9 @@ private:
 
 	Sirius::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 0.1f;
+	float m_CameraMoveSpeed = 1.0f;
 	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 2.0f;
+	float m_CameraRotationSpeed = 360.0f;
 };
 
 class Sandbox : public Sirius::Application {
