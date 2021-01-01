@@ -294,6 +294,8 @@
     <ClInclude Include="vendor\glm\glm\ext\matrix_int4x3_sized.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_int4x4.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_int4x4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_integer.inl" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_projection.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_projection.inl" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_relational.hpp" />
