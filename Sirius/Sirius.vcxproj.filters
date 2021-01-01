@@ -16,6 +16,9 @@
     <Filter Include="src\Sirius">
       <UniqueIdentifier>{7B68862E-6720-C87B-D027-A1D7BCFE626C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Sirius\Core">
+      <UniqueIdentifier>{B3112BED-1F9D-98B1-28AE-1BA694B8F4B1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Sirius\Events">
       <UniqueIdentifier>{FF5B58E9-6B72-567F-B4E9-E1A0203F2707}</UniqueIdentifier>
     </Filter>
@@ -57,6 +60,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
@@ -74,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="src\Sirius\Core.h">
       <Filter>src\Sirius</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sirius\Core\Timestep.h">
+      <Filter>src\Sirius\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sirius\EntryPoint.h">
       <Filter>src\Sirius</Filter>
@@ -115,6 +124,9 @@
       <Filter>src\Sirius\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sirius\Renderer\GraphicsContext.h">
+      <Filter>src\Sirius\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sirius\Renderer\OrthographicCamera.h">
       <Filter>src\Sirius\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sirius\Renderer\RenderCommand.h">
@@ -1371,9 +1383,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sirius\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Sirius\Core\Timestep.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1383,6 +1392,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
@@ -1415,6 +1427,9 @@
     <ClCompile Include="src\Sirius\Renderer\Buffer.cpp">
       <Filter>src\Sirius\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sirius\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Sirius\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Sirius\Renderer\RenderCommand.cpp">
       <Filter>src\Sirius\Renderer</Filter>
     </ClCompile>
@@ -1433,7 +1448,5 @@
     <ClCompile Include="src\srpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sirius\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include "srpch.h"
+
 #include "Application.h"
 
 #include "Sirius/Log.h"

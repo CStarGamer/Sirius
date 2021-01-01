@@ -20,7 +20,7 @@ public:
 			0.0f, 0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 0.0f,
 		};
 
-		std::shared_ptr<Sirius::VertexBuffer> vertexBuffer;
+		Sirius::Ref<Sirius::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Sirius::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Sirius::BufferLayout layout = {
 			{ Sirius::ShaderDataType::Float3, "a_Position" },
@@ -31,7 +31,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Sirius::IndexBuffer> indexBuffer;
+		Sirius::Ref<Sirius::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Sirius::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -44,7 +44,7 @@ public:
 			-0.75f, 0.75f, 0.0f
 		};
 
-		std::shared_ptr<Sirius::VertexBuffer> squareVB;
+		Sirius::Ref<Sirius::VertexBuffer> squareVB;
 		squareVB.reset(Sirius::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ Sirius::ShaderDataType::Float3, "a_Position" }
@@ -52,7 +52,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndicies[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Sirius::IndexBuffer> squareIB;
+		Sirius::Ref<Sirius::IndexBuffer> squareIB;
 		squareIB.reset(Sirius::IndexBuffer::Create(squareIndicies, sizeof(squareIndicies) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -200,11 +200,11 @@ public:
 	}
 
 private:
-	std::shared_ptr<Sirius::Shader> m_Shader;
-	std::shared_ptr<Sirius::VertexArray> m_VertexArray;
+	Sirius::Ref<Sirius::Shader> m_Shader;
+	Sirius::Ref<Sirius::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Sirius::Shader> m_FlatColorShader;
-	std::shared_ptr<Sirius::VertexArray> m_SquareVA;
+	Sirius::Ref<Sirius::Shader> m_FlatColorShader;
+	Sirius::Ref<Sirius::VertexArray> m_SquareVA;
 
 	Sirius::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
