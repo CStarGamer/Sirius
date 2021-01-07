@@ -1,5 +1,5 @@
 #pragma once
-#include "Sirius/Window.h"
+#include "Sirius/Core/Window.h"
 #include <GLFW/glfw3.h>
 #include "Sirius/Renderer/GraphicsContext.h"
 
@@ -29,15 +29,15 @@ namespace Sirius {
 
 		struct WindowData
 		{
-			std::string Title;
-			unsigned int Width, Height;
-			bool VSync;
+			std::string Title = "";
+			unsigned int Width = 0, Height = 0;
+			bool VSync = false;
 
 			EventCallbackFn EventCallback;
 		};
 
 		WindowData m_Data;
-		GraphicsContext* m_Context;
+		Scope<GraphicsContext> m_Context;
 	};
 }
 

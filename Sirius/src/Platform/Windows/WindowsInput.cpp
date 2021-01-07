@@ -2,11 +2,11 @@
 #include "WindowsInput.h"
 
 #include <GLFW/glfw3.h>
-#include "Sirius/Application.h"
+#include "Sirius/Core/Application.h"
 
 namespace Sirius {
 
-	Input* Input::s_instance = new WindowsInput();
+	Scope<Input> Input::s_instance = CreateScope<WindowsInput>();
 
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{

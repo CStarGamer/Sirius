@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sirius/Core.h"
+#include "Sirius/Core/Core.h"
 
 namespace Sirius {
 
@@ -20,6 +20,6 @@ namespace Sirius {
 		virtual double GetMouseXImpl() = 0;
 		virtual double GetMouseYImpl() = 0;
 	private:
-		static Input* s_instance;
+		static Scope<Input> s_instance;
 	};
 }

@@ -2,7 +2,7 @@
 
 #include "srpch.h"
 
-#include "Sirius/Core.h"
+#include "Sirius/Core/Core.h"
 #include "Sirius/Events/Event.h"
 
 namespace Sirius {

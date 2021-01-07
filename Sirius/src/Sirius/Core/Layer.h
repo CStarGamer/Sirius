@@ -1,7 +1,7 @@
 #pragma once
 #include "Sirius/Core/Timestep.h"
 
-#include "Sirius/Core.h"
+#include "Sirius/Core/Core.h"
 #include "Sirius/Events/Event.h"
 
 namespace Sirius {

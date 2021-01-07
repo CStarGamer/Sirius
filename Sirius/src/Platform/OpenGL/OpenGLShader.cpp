@@ -131,6 +131,7 @@ namespace Sirius {
 			SR_CORE_ASSERT(type == "vertex" || type == "fragment" || type == "pixel", "Invalid shader type!");
 
 			size_t nextLinePos = source.find_first_not_of("\r\n", eol);
+			SR_CORE_ASSERT(nextLinePos != std::string::npos, "Syntax error");
 			pos = source.find(typeToken, nextLinePos);
 			shaderSources[ShaderTypeFromString(type)] = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
 		}
@@ -184,6 +185,8 @@ namespace Sirius {
 			glShaderIDs[glShaderIDIndex++] = shader;
 		}
 
+		m_RendererID = program;
+
 		// Link our program
 		glLinkProgram(program);
 
@@ -215,9 +218,10 @@ namespace Sirius {
 
 		// Always detach shaders after a successful link.
 		for (auto id : glShaderIDs)
+		{
 			glDetachShader(program, id);
-
-		m_RendererID = program;
+			glDeleteShader(id);
+		}
 	}
 }
 

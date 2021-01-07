@@ -1,5 +1,5 @@
 #pragma once
-#include "Sirius/Input.h"
+#include "Sirius/Core/Input.h"
 
 namespace Sirius {
 	class WindowsInput : public Input {
