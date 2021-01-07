@@ -187,6 +187,14 @@ public:
 	void OnEvent(Sirius::Event& e) override
 	{
 		m_CameraController.OnEvent(e);
+
+		if (e.GetEventType() == Sirius::EventType::WindowResize)
+		{
+			auto& re = (Sirius::WindowResizeEvent&)e;
+
+			//float zoom = (float)re.GetWidth() / 1280.0f;
+			//m_CameraController.SetZoomLevel(zoom);
+		}
 	}
 
 private:
