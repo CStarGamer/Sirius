@@ -25,7 +25,4 @@
 #include "Sirius/Renderer/VertexArray.h"
 
 #include "Sirius/Renderer/OrthographicCamera.h"
-
-//---Entry Point-------------------
-#include "Sirius/Core/EntryPoint.h"
 //---------------------------------

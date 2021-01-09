@@ -24,12 +24,12 @@ namespace Sirius {
 		}
 			
 
-		if (Input::IsKeyPressed(SR_KEY_UP))
+		if (Input::IsKeyPressed(SR_KEY_DOWN))
 		{
 			m_CameraPosition.x -= -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (Input::IsKeyPressed(SR_KEY_DOWN))
+		else if (Input::IsKeyPressed(SR_KEY_UP))
 		{
 			m_CameraPosition.x += -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
