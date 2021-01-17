@@ -14,6 +14,7 @@ namespace Sirius {
 	{
 		Ref<VertexArray> QuadVertexArray;
 		Ref<Shader> FlatColorShader;
+		Ref<Shader> TextureShader;
 	};
 
 	static Renderer2DData* s_Data;
@@ -23,17 +24,18 @@ namespace Sirius {
 		s_Data = new Renderer2DData();
 		s_Data->QuadVertexArray = Sirius::VertexArray::Create();
 
-		float squareVertices[3 * 4] = { // X, Y, Z
-			-0.75f, -0.75f, 0.0f,
-			 0.75f, -0.75f, 0.0f,
-			 0.75f,  0.75f, 0.0f,
-			-0.75f,  0.75f, 0.0f
+		float squareVertices[5 * 4] = { // X, Y, Z
+			-0.75f, -0.75f, 0.0f, 0.0f, 0.0f,
+			 0.75f, -0.75f, 0.0f, 1.0f, 0.0f,
+			 0.75f,  0.75f, 0.0f, 1.0f, 1.0f,
+			-0.75f,  0.75f, 0.0f, 0.0f, 1.0f
 		};
 
 		Sirius::Ref<Sirius::VertexBuffer> squareVB;
 		squareVB.reset(Sirius::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
-			{ Sirius::ShaderDataType::Float3, "a_Position" }
+			{ Sirius::ShaderDataType::Float3, "a_Position" },
+			{ Sirius::ShaderDataType::Float2, "a_TexCoord" }
 			});
 		s_Data->QuadVertexArray->AddVertexBuffer(squareVB);
 
@@ -43,6 +45,9 @@ namespace Sirius {
 		s_Data->QuadVertexArray->SetIndexBuffer(squareIB);
 
 		s_Data->FlatColorShader = Sirius::Shader::Create("assets/shaders/FlatColor.glsl");
+		s_Data->TextureShader = Sirius::Shader::Create("assets/shaders/Texture.glsl");
+		s_Data->TextureShader->Bind();
+		s_Data->TextureShader->SetInt("u_Texture", 0);
 	}
 
 	void Renderer2D::Shutdown()
@@ -54,6 +59,9 @@ namespace Sirius {
 	{
 		s_Data->FlatColorShader->Bind();
 		s_Data->FlatColorShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
+		
+		s_Data->TextureShader->Bind();
+		s_Data->TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 	void Renderer2D::EndScene()
@@ -73,6 +81,24 @@ namespace Sirius {
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 		s_Data->FlatColorShader->SetMat4("u_Transform", transform);
+
+		s_Data->QuadVertexArray->Bind();
+		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);
+	}
+
+	void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const Ref<Texture2D>& texture)
+	{
+		DrawQuad({ position.x, position.y, 0.0f }, size, texture);
+	}
+
+	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const Ref<Texture2D>& texture)
+	{
+		s_Data->TextureShader->Bind();
+
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
+		s_Data->TextureShader->SetMat4("u_Transform", transform);
+
+		texture->Bind();
 
 		s_Data->QuadVertexArray->Bind();
 		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);

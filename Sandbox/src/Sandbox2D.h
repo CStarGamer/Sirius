@@ -23,4 +23,6 @@ private:
 	Sirius::Ref<Sirius::VertexArray> m_SquareVA;
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
+	Sirius::Ref<Sirius::Texture2D> m_CheckerboardTexture;
+
 };
