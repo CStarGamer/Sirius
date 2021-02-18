@@ -20,6 +20,7 @@ namespace Sirius {
 
 	Application::Application()
 	{
+		SR_PROFILE_FUNCTION();
 		SR_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
@@ -38,18 +39,24 @@ namespace Sirius {
 
 	void Application::PushLayer(Layer* layer)
 	{
+		SR_PROFILE_FUNCTION();
+
 		m_LayerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
+		SR_PROFILE_FUNCTION();
+
 		m_LayerStack.PushOverlay(overlay);
 		overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
 	{
+		SR_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
@@ -62,23 +69,36 @@ namespace Sirius {
 		}
 	}
 
-	void Application::Run() {
+	void Application::Run()
+	{
+		SR_PROFILE_FUNCTION();
+
 		while (m_Running)
 		{
+			SR_PROFILE_SCOPE("Run Loop");
+
 			float time = (float)glfwGetTime(); // TODO: Platform::GetTime()
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
 			if (!m_Minimized)
 			{
-				for (Layer* layer : m_LayerStack)
-					layer->OnUpdate(timestep);
+				{
+					SR_PROFILE_SCOPE("LayerStack OnUpdate");
+					for (Layer* layer : m_LayerStack)
+						layer->OnUpdate(timestep);
+				}
+
+				m_ImGuiLayer->Begin();
+				{
+					SR_PROFILE_SCOPE("LayerStack OnImGuiRender");
+					for (Layer* layer : m_LayerStack)
+						layer->OnImGuiRender();
+				}
+				m_ImGuiLayer->End();
 			}
 
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
-			m_ImGuiLayer->End();
+			
 
 			m_Window->OnUpdate();
 		}
@@ -92,6 +112,8 @@ namespace Sirius {
 
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		SR_PROFILE_FUNCTION();
+
 		if (e.GetWidth() * e.GetHeight() == 0)
 		{
 			m_Minimized = true;

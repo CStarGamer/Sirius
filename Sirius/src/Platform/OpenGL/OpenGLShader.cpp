@@ -21,6 +21,8 @@ namespace Sirius {
 
 	OpenGLShader::OpenGLShader(const std::string& filePath)
 	{
+		SR_PROFILE_FUNCTION();
+
 		std::string shaderSource = ReadFile(filePath);
 		auto shaderSources = Preprocess(shaderSource);
 		Compile(shaderSources);
@@ -32,6 +34,8 @@ namespace Sirius {
 	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 		: m_Name(name)
 	{
+		SR_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> sources;
 		sources[GL_VERTEX_SHADER] = vertexSrc;
 		sources[GL_FRAGMENT_SHADER] = fragmentSrc;
@@ -40,36 +44,50 @@ namespace Sirius {
 
 	OpenGLShader::~OpenGLShader()
 	{
+		SR_PROFILE_FUNCTION();
+
 		glDeleteProgram(m_RendererID);
 	}
 
 	void OpenGLShader::Bind() const
 	{
+		SR_PROFILE_FUNCTION();
+
 		glUseProgram(m_RendererID);
 	}
 
 	void OpenGLShader::Unbind() const
 	{
+		SR_PROFILE_FUNCTION();
+
 		glUseProgram(0);
 	}
 
 	void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& value)
 	{
+		SR_PROFILE_FUNCTION();
+
 		UploadUniformMat4(name, value);
 	}
 
 	void OpenGLShader::SetFloat4(const std::string& name, const glm::vec4& value)
 	{
+		SR_PROFILE_FUNCTION();
+
 		UploadUniformFloat4(name, value);
 	}
 
 	void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& value)
 	{
+		SR_PROFILE_FUNCTION();
+
 		UploadUniformFloat3(name, value);
 	}
 
 	void OpenGLShader::SetInt(const std::string& name, int value)
 	{
+		SR_PROFILE_FUNCTION();
+
 		UploadUniformInt(name, value);
 	}
 
@@ -117,6 +135,8 @@ namespace Sirius {
 
 	std::string OpenGLShader::ReadFile(const std::string& filePath)
 	{
+		SR_PROFILE_FUNCTION();
+
 		std::string result;
 		std::ifstream in(filePath, std::ios::in | std::ios::binary);
 		if (in)
@@ -137,6 +157,8 @@ namespace Sirius {
 
 	std::unordered_map<GLenum, std::string> OpenGLShader::Preprocess(const std::string& source)
 	{
+		SR_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> shaderSources;
 
 		const char* typeToken = "#type";
@@ -161,6 +183,8 @@ namespace Sirius {
 
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
+		SR_PROFILE_FUNCTION();
+
 		// Vertex and fragment shaders are successfully compiled.
 		// Now time to link them together into a program.
 		// Get a program object.

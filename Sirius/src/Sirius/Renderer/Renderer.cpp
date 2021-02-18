@@ -9,6 +9,8 @@ namespace Sirius {
 	Scope<Renderer::SceneData> Renderer::m_SceneData = CreateScope<Renderer::SceneData>();
 	void Renderer::Init()
 	{
+		SR_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}

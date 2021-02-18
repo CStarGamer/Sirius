@@ -12,6 +12,8 @@ namespace Sirius {
 	}
 	void OpenGLContext::Init()
 	{
+		SR_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		SR_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -32,6 +34,7 @@ namespace Sirius {
 	}
 	void OpenGLContext::SwapBuffers()
 	{
+		SR_PROFILE_FUNCTION();
 		glfwSwapBuffers(m_WindowHandle);
 	}
 }

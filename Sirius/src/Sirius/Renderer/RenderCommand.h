@@ -9,6 +9,7 @@ namespace Sirius {
 	public:
 		inline static void Init()
 		{
+			SR_PROFILE_FUNCTION();
 			s_RendererAPI->Init();
 		}
 

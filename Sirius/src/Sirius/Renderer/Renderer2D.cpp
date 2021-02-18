@@ -21,6 +21,8 @@ namespace Sirius {
 
 	void Renderer2D::Init()
 	{
+		SR_PROFILE_FUNCTION();
+
 		s_Data = new Renderer2DData();
 		s_Data->QuadVertexArray = Sirius::VertexArray::Create();
 
@@ -55,17 +57,22 @@ namespace Sirius {
 
 	void Renderer2D::Shutdown()
 	{
+		SR_PROFILE_FUNCTION();
+
 		delete s_Data;
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
 	{
+		SR_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->Bind();
 		s_Data->TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 	void Renderer2D::EndScene()
 	{
+		SR_PROFILE_FUNCTION();
 
 	}
 
@@ -76,6 +83,8 @@ namespace Sirius {
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color)
 	{
+		SR_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", color);
 		s_Data->WhiteTexture->Bind();
 
@@ -93,6 +102,8 @@ namespace Sirius {
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const Ref<Texture2D>& texture)
 	{
+		SR_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", glm::vec4(1.0f));
 		texture->Bind();
 
