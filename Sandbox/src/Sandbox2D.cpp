@@ -45,9 +45,9 @@ void Sandbox2D::OnUpdate(Sirius::Timestep ts)
 		SR_PROFILE_SCOPE("Renderer Draw");
 		Sirius::Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-		Sirius::Renderer2D::DrawQuad({ 0.5f, 0.5f }, { 1.0f, 1.0f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+		Sirius::Renderer2D::DrawRotatedQuad({ 0.5f, 0.5f }, { 1.0f, 1.0f }, glm::radians(30.0f), { 0.8f, 0.2f, 0.3f, 1.0f });
 		Sirius::Renderer2D::DrawQuad({ 0.0f, 0.2f }, { 0.75f, 0.5f }, { 0.65f, 0.96f, 1.0f, 1.0f });
-		Sirius::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerboardTexture);
+		Sirius::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, glm::radians(45.0f), m_CheckerboardTexture, 10.0f);
 
 		Sirius::Renderer2D::EndScene();
 	}

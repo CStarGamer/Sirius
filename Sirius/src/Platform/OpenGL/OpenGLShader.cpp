@@ -84,6 +84,13 @@ namespace Sirius {
 		UploadUniformFloat3(name, value);
 	}
 
+	void OpenGLShader::SetFloat(const std::string& name, float value)
+	{
+		SR_PROFILE_FUNCTION();
+
+		UploadUniformFloat(name, value);
+	}
+
 	void OpenGLShader::SetInt(const std::string& name, int value)
 	{
 		SR_PROFILE_FUNCTION();
