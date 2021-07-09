@@ -19,6 +19,9 @@
     <Filter Include="src\Sirius\Core">
       <UniqueIdentifier>{B3112BED-1F9D-98B1-28AE-1BA694B8F4B1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Sirius\Debug">
+      <UniqueIdentifier>{31A39992-1D9C-B8E4-46CE-9D69322698F0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Sirius\Events">
       <UniqueIdentifier>{FF5B58E9-6B72-567F-B4E9-E1A0203F2707}</UniqueIdentifier>
     </Filter>
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="src\Sirius\Core\Window.h">
       <Filter>src\Sirius\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sirius\Debug\Instrumentor.h">
+      <Filter>src\Sirius\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Sirius\Events\ApplicationEvent.h">
       <Filter>src\Sirius\Events</Filter>
@@ -1407,7 +1413,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sirius\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
